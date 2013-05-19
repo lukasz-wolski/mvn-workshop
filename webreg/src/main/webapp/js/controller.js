@@ -1,4 +1,7 @@
 function UserRegController($scope) {
-    $scope.left = 1
-    $scope.right = 2
+
+    $scope.registerUser = function() {
+        alert($scope.name + " " + $scope.email)
+    }
+
 }

@@ -16,30 +16,34 @@
             <div class="control-group">
                 <label class="control-label" for="inputName">Name</label>
                 <div class="controls">
-                    <input type="text" id="inputName" placeholder="Name">
+                    <input type="text" id="inputName" placeholder="Name" ng-model="name">
                 </div>
             </div>
+
             <div class="control-group">
                 <label class="control-label" for="inputSurname">Surname</label>
                 <div class="controls">
-                    <input type="text" id="inputSurname" placeholder="Surname">
+                    <input type="text" id="inputSurname" placeholder="Surname" ng-model="surname">
                 </div>
             </div>
+
             <div class="control-group">
                 <label class="control-label" for="inputEmail">Email</label>
                 <div class="controls">
-                    <input type="text" id="inputEmail" placeholder="Email">
+                    <input type="text" id="inputEmail" placeholder="Email" ng-model="email">
                 </div>
             </div>
+
             <div class="control-group">
                 <label class="control-label" for="inputWebpage">Webpage</label>
                 <div class="controls">
-                    <input type="text" id="inputWebpage" placeholder="Webpage">
+                    <input type="text" id="inputWebpage" placeholder="Webpage" ng-model="webpage">
                 </div>
             </div>
+
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" class="btn">Register</button>
+                    <button type="submit" class="btn" ng-click="registerUser()">Register</button>
                 </div>
             </div>
         </form>
