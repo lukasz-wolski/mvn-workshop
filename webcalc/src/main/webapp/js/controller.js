@@ -1,7 +1,15 @@
-function CalculatorController($scope) {
+function CalculatorController($scope, $http) {
 
     $scope.calculate = function() {
-        $scope.result = parseFloat($scope.left) + parseFloat($scope.right)
+        $http.get('rest/calculator',
+            {
+                params: {
+                    left: $scope.left,
+                    right: $scope.right
+                }
+            }).success(function(response) {
+                $scope.result = response
+            });
     }
 
 }
