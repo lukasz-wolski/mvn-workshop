@@ -8,7 +8,7 @@ public class CalculatorTest {
 
     @Test
     public void shouldAddNumbers() {
-        int result = new Calculator().add(4, 6);
+        double result = new Calculator().add(4, 6);
 
         assertThat(result).isEqualTo(10);
     }
