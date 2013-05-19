@@ -29,4 +29,14 @@ public class User {
     public String getWebpage() {
         return webpage;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", webpage='" + webpage + '\'' +
+                '}';
+    }
 }

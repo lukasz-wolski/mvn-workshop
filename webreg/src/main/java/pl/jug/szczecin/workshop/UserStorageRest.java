@@ -25,7 +25,10 @@ public class UserStorageRest {
             @FormParam("surname") String surname,
             @FormParam("email") String email,
             @FormParam("webpage") String webpage) {
-        userStorage.storeUser(new User(name, surname, email, webpage));
+
+        User user = new User(name, surname, email, webpage);
+        System.out.println("User to store: " + user);
+        userStorage.storeUser(user);
     }
 
     @GET
