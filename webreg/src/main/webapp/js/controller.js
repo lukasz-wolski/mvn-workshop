@@ -1,4 +1,4 @@
-function UserRegController($scope) {
+function UserRegController($scope, $http) {
 
     $scope.users = [
         {
@@ -16,7 +16,20 @@ function UserRegController($scope) {
     ];
 
     $scope.registerUser = function() {
-        alert($scope.name + " " + $scope.email)
+        $http.post('rest/storage/store',
+            $.param({
+                name: $scope.name,
+                surname: $scope.surname,
+                email: $scope.email,
+                webpage: $scope.webpage
+            }),
+            {
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function() {
+                alert("success, user added")
+            }).error(function() {
+                alert("error")
+            })
     }
 
 }
