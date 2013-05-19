@@ -3,7 +3,6 @@
 
 <head>
     <title>Workshop site</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/app.css">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <script src="lib/angular/angular.js"></script>
     <script src="js/controller.js"></script>
@@ -13,12 +12,12 @@
 <div class="container">
     <div class="well">
         <form class="form-inline">
-            <input type="text" class="input-small">
+            <input type="text" class="input-small" ng-model="left">
             +
-            <input type="text" class="input-small">
+            <input type="text" class="input-small" ng-model="right">
             =
-            <span>?</span>
-            <button type="submit" class="btn">Calculate</button>
+            <span>{{result}}</span>
+            <button type="submit" class="btn" ng-click="calculate()">Calculate</button>
         </form>
     </div>
 </div>
