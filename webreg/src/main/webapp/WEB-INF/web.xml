@@ -3,5 +3,14 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Web User Registration</display-name>
+    <display-name>Web User Registration</display-name>
+
+    <!-- For JAX-RS services -->
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+    </listener>
 </web-app>

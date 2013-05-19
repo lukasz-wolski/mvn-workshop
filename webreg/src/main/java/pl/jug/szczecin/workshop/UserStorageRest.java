@@ -2,15 +2,36 @@ package pl.jug.szczecin.workshop;
 
 import pl.jug.szczecin.workshop.entity.User;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Path("/storage")
 public class UserStorageRest {
 
-    public void storeUser(String name, String surname, String email, Object webpage) {
-        //To change body of created methods use File | Settings | File Templates.
+    private static UserStorage userStorage = new UserStorage();
+
+    @POST
+    @Path("store")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void storeUser(
+            @FormParam("name") String name,
+            @FormParam("surname") String surname,
+            @FormParam("email") String email,
+            @FormParam("webpage") String webpage) {
+        userStorage.storeUser(new User(name, surname, email, webpage));
     }
 
+    @GET
+    @Path("users")
+    @Produces(MediaType.APPLICATION_JSON)
     public List<User> getUsers() {
-        return null;
+        return userStorage.getUsers();
     }
 }
