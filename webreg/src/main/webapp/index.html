@@ -47,6 +47,25 @@
                 </div>
             </div>
         </form>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Webpage</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.webpage}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
