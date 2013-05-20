@@ -1,19 +1,11 @@
 function UserRegController($scope, $http) {
 
-    $scope.users = [
-        {
-            name: "Paweł",
-            surname: "Stawicki",
-            email: "pawelstawicki@gmail.com",
-            webpage: "pawelstawicki.blogspot.com"
-        },
-        {
-            name: "Leszek",
-            surname: "Gruchała",
-            email: "leszek@gmail.com",
-            webpage: "leszek.blogspot.com"
-        }
-    ];
+    $scope.updateUsers = function() {
+        $http.get('rest/storage/users')
+            .success(function(response) {
+                $scope.users = response
+            })
+    }
 
     $scope.registerUser = function() {
         $http.post('rest/storage/store',
@@ -27,9 +19,11 @@ function UserRegController($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function() {
                 alert("success, user added")
+                $scope.updateUsers()
             }).error(function() {
                 alert("error")
             })
     }
 
+    $scope.updateUsers()
 }
