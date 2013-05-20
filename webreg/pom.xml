@@ -8,6 +8,10 @@
 
     <packaging>war</packaging>
 
+    <properties>
+        <jboss-as.home>/Users/amorfis/apps/jboss-7</jboss-as.home>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -16,6 +20,15 @@
                 <version>2.2</version>
                 <configuration>
                     <warName>webreg</warName>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.4.Final</version>
+                <configuration>
+                    <filename>webreg.war</filename>
                 </configuration>
             </plugin>
         </plugins>
