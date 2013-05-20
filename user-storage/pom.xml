@@ -4,24 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>workshop</groupId>
-    <artifactId>user-storage</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>workshop</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.3.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>1.1.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>user-storage</artifactId>
 
     <build>
         <plugins>
