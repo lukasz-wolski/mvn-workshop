@@ -7,3 +7,4 @@ http://docs.jboss.org/jbossas/7/plugins/maven/7.4.Final/index.html
 Downloads:
 http://twitter.github.io/bootstrap/index.html
 http://angularjs.org/
+http://jquery.com/download/
