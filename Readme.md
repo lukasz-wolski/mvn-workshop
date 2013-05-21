@@ -8,3 +8,5 @@ Downloads:
 http://twitter.github.io/bootstrap/index.html
 http://angularjs.org/
 http://jquery.com/download/
+
+mvn archetype:generate -DgroupId=workshop -DartifactId=webreg -DarchetypeArtifactId=maven-archetype-webapp
