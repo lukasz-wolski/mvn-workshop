@@ -14,7 +14,7 @@ import java.util.List;
 @Path("/storage")
 public class UserStorageRest {
 
-    private static UserStorage userStorage = new UserStorage();
+    private static UserStorage userStorage = new UserStorageInMemory();
 
     @POST
     @Path("store")

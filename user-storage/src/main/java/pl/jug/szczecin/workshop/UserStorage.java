@@ -2,18 +2,17 @@ package pl.jug.szczecin.workshop;
 
 import pl.jug.szczecin.workshop.entity.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserStorage {
+/**
+ * Created with IntelliJ IDEA.
+ * User: lukasz
+ * Date: 6/2/13
+ * Time: 12:44 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public interface UserStorage {
+    void storeUser(User user);
 
-    private List<User> users = new ArrayList<User>();
-
-    public void storeUser(User user) {
-        users.add(user);
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
+    List<User> getUsers();
 }
