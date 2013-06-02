@@ -12,7 +12,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <jboss-as.home>/Users/amorfis/apps/jboss-7</jboss-as.home>
+        <jboss-as.home>/home/lukasz/dev/jboss-as-7.1.0.Final</jboss-as.home>
     </properties>
 
     <dependencies>
