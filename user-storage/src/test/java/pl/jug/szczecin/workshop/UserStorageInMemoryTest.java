@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UserStorageTest {
+public class UserStorageInMemoryTest {
 
     public static final String NAME = "Paweł";
     public static final String SURENAME = "Stawicki";
