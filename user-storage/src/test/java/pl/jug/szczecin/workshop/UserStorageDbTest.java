@@ -17,6 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.jug.szczecin.workshop.entity.User;
 
+import java.util.List;
 import java.util.Random;
 
 public class UserStorageDbTest extends Arquillian {
@@ -43,5 +44,17 @@ public class UserStorageDbTest extends Arquillian {
         // Then
         Assert.assertNotNull(storage);
         Assertions.assertThat(storage).isExactlyInstanceOf(UserStoragePersistent.class);
+    }
+
+    @Test
+    public void shouldStoreUserInPersistenceContext() throws Exception {
+        // Given
+        User user = new User("Łukasz", "Wolski", "lukasz.k.wolski@gmail.com", "a proud SzJUG member :)");
+        // When
+        storage.storeUser(user);
+        // Then
+        List<User> users = storage.getUsers();
+
+        Assertions.assertThat(users).containsExactly(user);
     }
 }
