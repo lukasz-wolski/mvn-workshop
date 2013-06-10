@@ -3,20 +3,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
-    <container qualifier="jbossas-remote-7">
+    <container qualifier="jbossas7-remote" default="true">
         <configuration>
-            <property name="adminUserName">root</property>
-            <property name="adminPassword">toor</property>
+            <property name="username">root</property>
+            <property name="password">toor</property>
         </configuration>
     </container>
-    
-    <container qualifier="wls-remote-12.1">
+
+    <container qualifier="jbossas7-managed">
         <configuration>
-           <property name="adminUrl">t3://localhost:7001</property>
-           <property name="adminUserName">weblogic</property>
-           <property name="adminPassword">passw0rd</property>
-           <property name="wlsHome">${wls.home:/home/dallen/opt/wls/wlserver}</property>
-           <property name="target">AdminServer</property>
+            <property name="jbossHome">/home/lukasz/dev/jboss-as-7.1.0.Final</property>
         </configuration>
     </container>
 
