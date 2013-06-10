@@ -24,6 +24,7 @@ public class UserStorageDbTest extends Arquillian {
     @Deployment
     public static JavaArchive createDeployment() {
         boolean recursively = true;
+
         return ShrinkWrap.create(JavaArchive.class)
                 .addClasses(UserStorage.class, UserStoragePersistent.class, User.class)
                 .addPackages(recursively, "org.assertj")
@@ -34,9 +35,13 @@ public class UserStorageDbTest extends Arquillian {
     UserStorage storage;
 
     @Test
-    public void shouldInjectUserStorage() throws Exception {
-        Assert.assertNotNull(storage);
+    public void shouldInjectPersistentUserStorage() throws Exception {
+        // Given
 
+        // When
+
+        // Then
+        Assert.assertNotNull(storage);
         Assertions.assertThat(storage).isExactlyInstanceOf(UserStoragePersistent.class);
     }
 }
