@@ -10,6 +10,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pl.jug.szczecin.workshop.entity.User;
 
 import java.util.Random;
 
@@ -18,7 +19,7 @@ public class UserStorageDbTest extends Arquillian {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(UserStorageInMemory.class)
+                .addClasses(UserStorage.class, UserStorageInMemory.class, User.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -26,7 +27,7 @@ public class UserStorageDbTest extends Arquillian {
     UserStorage storage;
 
     @Test
-    public void shouldGenerateRandomNumber() throws Exception {
+    public void shouldInjectUserStorage() throws Exception {
         Assert.assertNotNull(storage);
     }
 }
