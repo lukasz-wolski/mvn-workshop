@@ -10,7 +10,10 @@ import org.jboss.osgi.repository.core.MavenArtifactProvider;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependency;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.jboss.shrinkwrap.resolver.impl.maven.MavenBuilderImpl;
 import org.jboss.shrinkwrap.resolver.impl.maven.MavenRepositorySystem;
 import org.testng.Assert;
@@ -23,13 +26,15 @@ import java.util.Random;
 public class UserStorageDbTest extends Arquillian {
 
     @Deployment
-    public static JavaArchive createDeployment() {
-        boolean recursively = true;
+    public static WebArchive createDeployment() {
+        MavenDependencyResolver resolver = DependencyResolvers.use(MavenDependencyResolver.class)
+                .loadMetadataFromPom("pom.xml");
 
-        return ShrinkWrap.create(JavaArchive.class)
+        return ShrinkWrap.create(WebArchive.class)
                 .addClasses(UserStorage.class, UserStoragePersistent.class, User.class)
-                .addPackages(recursively, "org.assertj")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsLibraries(
+                        resolver.artifacts("org.assertj:assertj-core").resolveAsFiles())
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @Inject
