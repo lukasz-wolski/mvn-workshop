@@ -11,10 +11,6 @@
     <artifactId>webreg</artifactId>
     <packaging>war</packaging>
 
-    <properties>
-        <jboss-as.home>/home/lukasz/dev/jboss-as-7.1.0.Final</jboss-as.home>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
